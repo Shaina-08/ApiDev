@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.env
+
+# Distribution / packaging
+build/
+dist/
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# Test and coverage results
+.coverage
+htmlcov/
+.cache/
+nosetests.xml
+coverage.xml
+
+# System files
+.DS_Store
