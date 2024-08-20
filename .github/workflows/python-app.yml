@@ -8,7 +8,6 @@ on:
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
   build:
@@ -16,8 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
     - name: Set up Python 3.12
       uses: actions/setup-python@v3
@@ -27,8 +25,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install flake8 pytest httpx fastapi
+        pip install flake8 pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=./app" >> $GITHUB_ENV
 
     - name: Lint with flake8
       run: |
@@ -36,5 +37,4 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude=venv
 
     - name: Run tests
-      run: |
-        pytest
+      run: pytest
