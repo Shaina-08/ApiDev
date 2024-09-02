@@ -15,7 +15,7 @@ This repository contains a CRUD (Create, Read, Update, Delete) application built
 ### Prerequisites
 
 - **Python 3.12+**: Ensure Python is installed. Download it from [python.org](https://www.python.org/downloads/).
-- **pip**: The Python package installer, usually included with Python.
+- **pip3**: The Python package installer, usually included with Python.
 
 ### Installation
 
